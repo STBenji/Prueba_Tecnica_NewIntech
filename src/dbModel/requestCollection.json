@@ -1,0 +1,71 @@
+{
+  "info": {
+    "name": "Prueba técnica para New Intech",
+    "description": "Colección de peticiones para la prueba técnica para New Intech"
+  },
+  "item": [
+    {
+      "name": "Bienvenida a la API",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/api/test"
+      }
+    },
+    {
+      "name": "Ver todos los vehículos",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/api/vehicles"
+      }
+    },
+    {
+      "name": "Crear un vehículo",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:3000/api/createVehicle"
+      }
+    },
+    {
+      "name": "Actualizar un vehículo",
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:3000/api/updateVehicle/[id del vehículo al cual se desea actualizar]"
+      }
+    },
+    {
+      "name": "Eliminar un vehículo",
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:3000/api/deleteVehicle/[id del vehículo el cual se desea eliminar]"
+      }
+    },
+    {
+      "name": "Ver todos el registro del parquedaro (determina el número de cupos disponible)",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/api/parking"
+      }
+    },
+    {
+      "name": "Crear un espacio en el parqueadero (crea un registro del parqueadero)",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:3000/api/createParking"
+      }
+    },
+    {
+      "name": "Actualizar la fecha de un registro del parqueadero tanto como a la entrada como a la salida",
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:3000/api/updateParking/[id del registro al cual se desea actualizar]"
+      }
+    },
+    {
+      "name": "Eliminar un registro del parqueadero (Aumenta el número de cupos)",
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:3000/api/deleteParking/[id del registro el cual se desea eliminar]"
+      }
+    }
+  ]
+}
