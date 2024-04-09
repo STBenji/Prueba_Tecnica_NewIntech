@@ -6,8 +6,7 @@ export const createParkingSchema = z.object({
   model: z.string().min(1).max(20),
   color: z.string().min(1).max(20),
   plate: z.string().min(1).max(10),
-  idVehicle: z.number(),
-  entry_date: z.date(),
+  entry_date: z.string(),
 })
 
 export const parkingSchema = createParkingSchema.extend()
