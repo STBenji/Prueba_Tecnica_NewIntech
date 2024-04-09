@@ -23,14 +23,17 @@ export const postVehicles = (req, res) => {
     const sql = 'INSERT INTO vehicles (type_vehicle, brand, model, color, plate) VALUES (?, ?, ?, ?, ?)'
     const values = [type_vehicle, brand, model, color, plate]
 
-    pool.query(sql, values, (error) => {
+    pool.query(sql, values, (error, result) => {
       if (error) {
         res.status(500).json({ error: 'Error al crear un vehículo' })
       } else {
         res.status(200).json({ message: 'Vehículo creado existosamente.' })
       }
     })
+
+    console.log(idVehicle)
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: 'Error en el servido al momento de crear un vehículo.' })
   }
 }
