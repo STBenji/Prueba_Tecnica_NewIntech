@@ -5,14 +5,14 @@ export const getVehicles = (req, res) => {
   try {
     pool.query('SELECT * FROM vehicles', (error, result) => {
       if (error) {
-        res.status(500).json({ error: 'Error al obtener los vehículos.' })
+        res.status(500).json({ error: 'Error fetching vehicles.' })
       } else {
         res.status(200).json(result)
       }
     })
   } catch (error) {
     console.error(error)
-    res.status(500).json({ error: 'Error al obtener los vehículos.' })
+    res.status(500).json({ message: 'An error occurred with the server, please try again later.', error: error })
   }
 }
 
@@ -23,18 +23,15 @@ export const postVehicles = (req, res) => {
     const sql = 'INSERT INTO vehicles (type_vehicle, brand, model, color, plate) VALUES (?, ?, ?, ?, ?)'
     const values = [type_vehicle, brand, model, color, plate]
 
-    pool.query(sql, values, (error, result) => {
+    pool.query(sql, values, (error) => {
       if (error) {
-        res.status(500).json({ error: 'Error al crear un vehículo' })
+        res.status(500).json({ error: 'Error creating a vehicle.' })
       } else {
         res.status(200).json({ message: 'Vehículo creado existosamente.' })
       }
     })
-
-    console.log(idVehicle)
   } catch (error) {
-    console.log(error)
-    res.status(500).json({ error: 'Error en el servido al momento de crear un vehículo.' })
+    res.status(500).json({ message: 'An error occurred with the server, please try again later.', error: error })
   }
 }
 
@@ -49,13 +46,13 @@ export const updateVehicle = (req, res) => {
 
     pool.query(sql, values, (error) => {
       if (error) {
-        res.status(500).json({ error: 'Error al actualizar el vehículo' })
+        res.status(500).json({ error: 'Error updating vehicle.' })
       } else {
-        res.status(200).json({ message: 'Vehículo actualizado exitosamente.' })
+        res.status(200).json({ message: 'Vehicle updated successfully.' })
       }
     })
   } catch (error) {
-    res.status(500).json({ error: 'Error en el servidor al momento de actualizar un vehículo.' })
+    res.status(500).json({ message: 'An error occurred with the server, please try again later.', error: error })
   }
 }
 
@@ -69,12 +66,12 @@ export const deleteVehicle = (req, res) => {
 
     pool.query(sql, values, (error) => {
       if (error) {
-        res.status(500).json({ error: 'Error al eliminar el vehículo' })
+        res.status(500).json({ error: 'Error deleting vehicle.' })
       } else {
-        res.status(200).json({ message: 'Vehículo eliminado exitosamente.' })
+        res.status(200).json({ message: 'Vehicle deleted successfully.' })
       }
     })
   } catch (error) {
-    res.status(500).json({ error: 'Error en el servidor al momento de eliminar un vehículo.' })
+    res.status(500).json({ message: 'An error occurred with the server, please try again later.', error: error })
   }
 }
